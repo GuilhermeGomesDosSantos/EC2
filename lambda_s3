@@ -1,0 +1,227 @@
+# ☁️ Laboratório AWS Lambda + Amazon S3
+
+> Implementação de tarefas automatizadas utilizando **AWS Lambda** e **Amazon S3**, explorando conceitos de computação serverless e processamento orientado a eventos.
+
+---
+
+# 📖 Sobre o Projeto
+
+Este repositório foi desenvolvido como parte do laboratório da **DIO (Digital Innovation One)** com o objetivo de consolidar os conhecimentos sobre **AWS Lambda** e **Amazon S3**.
+
+Durante o laboratório foi possível compreender como automatizar tarefas utilizando funções serverless acionadas por eventos gerados no Amazon S3, eliminando a necessidade de gerenciamento de servidores e tornando as aplicações mais escaláveis e econômicas.
+
+Além da implementação prática, este repositório serve como material de consulta para futuros estudos e projetos envolvendo automação na AWS.
+
+---
+
+# 🎯 Objetivos
+
+* Compreender o funcionamento do AWS Lambda.
+* Conhecer o modelo de computação **Serverless**.
+* Entender como o Amazon S3 pode disparar eventos.
+* Automatizar tarefas utilizando funções Lambda.
+* Consolidar conhecimentos sobre integração entre serviços da AWS.
+* Documentar os aprendizados obtidos durante o laboratório.
+
+---
+
+# 🛠 Tecnologias Utilizadas
+
+* AWS Lambda
+* Amazon S3
+* AWS IAM
+* Amazon CloudWatch
+* Python *(ou Node.js, dependendo da implementação)*
+* Git
+* GitHub
+
+---
+
+# 📚 O que é o AWS Lambda?
+
+O **AWS Lambda** é um serviço de computação serverless que permite executar código sem a necessidade de provisionar ou administrar servidores.
+
+A função é executada apenas quando ocorre um evento, como:
+
+* Upload de arquivos no Amazon S3;
+* Requisições HTTP;
+* Alterações em bancos de dados;
+* Mensagens em filas;
+* Agendamentos automáticos.
+
+Principais benefícios:
+
+* Não há gerenciamento de servidores.
+* Escalabilidade automática.
+* Cobrança apenas pelas execuções realizadas.
+* Fácil integração com diversos serviços da AWS.
+
+---
+
+# 📦 O que é o Amazon S3?
+
+O **Amazon Simple Storage Service (Amazon S3)** é o serviço de armazenamento de objetos da AWS.
+
+Ele permite armazenar:
+
+* Arquivos
+* Imagens
+* Vídeos
+* Backups
+* Logs
+* Documentos
+
+Além do armazenamento, o S3 pode gerar eventos que acionam automaticamente funções Lambda.
+
+---
+
+# 🔄 Arquitetura do Laboratório
+
+```text
+                Upload de Arquivo
+
+                     │
+                     ▼
+
+             Amazon S3 (Bucket)
+
+                     │
+          Evento ObjectCreated
+
+                     ▼
+
+              AWS Lambda Function
+
+                     │
+                     ▼
+
+          Processamento do Arquivo
+
+                     │
+                     ▼
+
+      Logs e Monitoramento (CloudWatch)
+```
+
+---
+
+# 📂 Estrutura do Repositório
+
+```text
+.
+├── README.md
+├── lambda/
+│   └── lambda_function.py
+├── imagens/
+│   ├── arquitetura.png
+│   └── laboratorio.png
+├── anotacoes/
+│   └── observacoes.md
+└── exemplos/
+    └── evento-s3.json
+```
+
+---
+
+# 🚀 Etapas Realizadas
+
+Durante o laboratório foram executadas as seguintes atividades:
+
+1. Criação de um Bucket no Amazon S3.
+2. Criação da função AWS Lambda.
+3. Configuração das permissões utilizando IAM.
+4. Associação do evento do S3 à função Lambda.
+5. Upload de arquivos para o Bucket.
+6. Execução automática da função.
+7. Monitoramento da execução através do CloudWatch.
+8. Validação dos resultados.
+
+---
+
+# ⚙ Fluxo de Funcionamento
+
+```text
+Usuário
+   │
+   ▼
+Realiza Upload
+   │
+   ▼
+Amazon S3
+   │
+Evento ObjectCreated
+   │
+   ▼
+AWS Lambda
+   │
+Executa o código
+   │
+   ▼
+CloudWatch registra os logs
+```
+
+---
+
+# 💡 Aprendizados
+
+Durante este laboratório foi possível compreender:
+
+* Como funciona a computação Serverless.
+* Como criar funções AWS Lambda.
+* Como integrar serviços utilizando eventos.
+* Como o Amazon S3 dispara eventos automaticamente.
+* A importância das permissões configuradas no IAM.
+* Como utilizar o CloudWatch para monitoramento e análise de logs.
+* Como reduzir custos utilizando processamento sob demanda.
+
+---
+
+# 📈 Benefícios da Arquitetura Serverless
+
+* Escalabilidade automática.
+* Alta disponibilidade.
+* Menor custo operacional.
+* Não exige gerenciamento de infraestrutura.
+* Fácil integração com outros serviços AWS.
+* Execução baseada em eventos.
+
+---
+
+# 🔐 Segurança
+
+Para garantir uma implementação segura, é recomendado:
+
+* Aplicar o princípio do menor privilégio (Least Privilege) nas políticas IAM.
+* Evitar permissões excessivas para a função Lambda.
+* Habilitar criptografia no Bucket S3 quando necessário.
+* Monitorar as execuções utilizando o CloudWatch.
+* Controlar o acesso ao Bucket utilizando Bucket Policies.
+
+---
+
+# ✅ Boas Práticas
+
+* Utilizar funções Lambda pequenas e específicas.
+* Manter o código organizado e reutilizável.
+* Evitar processamento muito longo em uma única função.
+* Configurar timeout adequado.
+* Monitorar métricas pelo CloudWatch.
+* Versionar o código utilizando Git.
+* Documentar todas as integrações realizadas.
+
+---
+
+# 📌 Conclusão
+
+Este laboratório permitiu compreender, na prática, como construir soluções orientadas a eventos utilizando o **AWS Lambda** e o **Amazon S3**. A integração entre esses serviços demonstra o poder da computação serverless para automatizar processos, reduzir a complexidade operacional e otimizar custos.
+
+Os conhecimentos adquiridos servem como base para o desenvolvimento de arquiteturas modernas na AWS, podendo ser aplicados em cenários como processamento de arquivos, geração de miniaturas de imagens, validação de documentos, automação de backups e diversas outras soluções escaláveis.
+
+---
+
+# 📖 Referências
+
+* Documentação Oficial do AWS Lambda
+* Documentação Oficial do Amazon S3
+* AWS Well-Architected Framework
+* AWS Serverless Application Model (AWS SAM)
